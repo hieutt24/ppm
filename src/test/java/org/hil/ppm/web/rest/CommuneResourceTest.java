@@ -82,9 +82,9 @@ public class CommuneResourceTest {
     public void initTest() {
         commune = new Commune();
         commune.setName(DEFAULT_NAME);
-        commune.setId_district(DEFAULT_ID_DISTRICT);
+        commune.setDistrictId(DEFAULT_ID_DISTRICT);
         commune.setActive(DEFAULT_ACTIVE);
-        commune.setCreated_date(DEFAULT_CREATED_DATE);
+        commune.setCreatedDate(DEFAULT_CREATED_DATE);
     }
 
     @Test
@@ -103,9 +103,9 @@ public class CommuneResourceTest {
         assertThat(communes).hasSize(databaseSizeBeforeCreate + 1);
         Commune testCommune = communes.get(communes.size() - 1);
         assertThat(testCommune.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testCommune.getId_district()).isEqualTo(DEFAULT_ID_DISTRICT);
+        assertThat(testCommune.getDistrictId()).isEqualTo(DEFAULT_ID_DISTRICT);
         assertThat(testCommune.getActive()).isEqualTo(DEFAULT_ACTIVE);
-        assertThat(testCommune.getCreated_date().toDateTime(DateTimeZone.UTC)).isEqualTo(DEFAULT_CREATED_DATE);
+        assertThat(testCommune.getCreatedDate().toDateTime(DateTimeZone.UTC)).isEqualTo(DEFAULT_CREATED_DATE);
     }
 
     @Test
@@ -160,9 +160,9 @@ public class CommuneResourceTest {
 
         // Update the commune
         commune.setName(UPDATED_NAME);
-        commune.setId_district(UPDATED_ID_DISTRICT);
+        commune.setDistrictId(UPDATED_ID_DISTRICT);
         commune.setActive(UPDATED_ACTIVE);
-        commune.setCreated_date(UPDATED_CREATED_DATE);
+        commune.setCreatedDate(UPDATED_CREATED_DATE);
         restCommuneMockMvc.perform(put("/api/communes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(commune)))
@@ -173,9 +173,9 @@ public class CommuneResourceTest {
         assertThat(communes).hasSize(databaseSizeBeforeUpdate);
         Commune testCommune = communes.get(communes.size() - 1);
         assertThat(testCommune.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testCommune.getId_district()).isEqualTo(UPDATED_ID_DISTRICT);
+        assertThat(testCommune.getDistrictId()).isEqualTo(UPDATED_ID_DISTRICT);
         assertThat(testCommune.getActive()).isEqualTo(UPDATED_ACTIVE);
-        assertThat(testCommune.getCreated_date().toDateTime(DateTimeZone.UTC)).isEqualTo(UPDATED_CREATED_DATE);
+        assertThat(testCommune.getCreatedDate().toDateTime(DateTimeZone.UTC)).isEqualTo(UPDATED_CREATED_DATE);
     }
 
     @Test

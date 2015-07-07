@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="ppmApp.commune.detail.title">Commune</span> {{commune.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.commune.name">Name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{commune.name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.commune.id_district">Id_district</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{commune.id_district}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.commune.active">Active</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{commune.active}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.commune.created_date">Created_date</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{commune.created_date}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="commune"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

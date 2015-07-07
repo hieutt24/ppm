@@ -1,0 +1,19 @@
+{
+    "ppmApp": {
+        "region" : {
+            "home": {
+                "title": "Regions",
+                "createLabel": "Create a new Region",
+                "createOrEditLabel": "Create or edit a Region"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Region {{ id }}?"
+            },
+            "detail": {
+                "title": "Region"
+            },
+            "name": "Name",
+            "active": "Active"
+        }
+    }
+}

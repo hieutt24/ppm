@@ -1,0 +1,21 @@
+{
+    "ppmApp": {
+        "commune" : {
+            "home": {
+                "title": "Communes",
+                "createLabel": "Create a new Commune",
+                "createOrEditLabel": "Create or edit a Commune"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Commune {{ id }}?"
+            },
+            "detail": {
+                "title": "Commune"
+            },
+            "name": "Name",
+            "id_district": "Id_district",
+            "active": "Active",
+            "created_date": "Created_date"
+        }
+    }
+}

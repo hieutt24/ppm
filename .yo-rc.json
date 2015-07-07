@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "ppm",
+    "packageName": "org.hil.ppm",
+    "packageFolder": "org/hil/ppm",
+    "authenticationType": "session",
+    "hibernateCache": "hazelcast",
+    "clusteredHttpSession": "hazelcast",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": true,
+    "rememberMeKey": "42ee2cc0238461d07cbe3ad7e08906c68ac0a0aa"
+  }
+}

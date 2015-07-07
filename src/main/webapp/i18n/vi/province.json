@@ -1,0 +1,20 @@
+{
+    "ppmApp": {
+        "province" : {
+            "home": {
+                "title": "Danh mục tỉnh",
+                "createLabel": "Tạo mới",
+                "createOrEditLabel": "Create or edit a Province"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Province {{ id }}?"
+            },
+            "detail": {
+                "title": "Tỉnh"
+            },
+            "name": "Tên",
+            "active": "Active",
+            "id_region": "Miền"
+        }
+    }
+}

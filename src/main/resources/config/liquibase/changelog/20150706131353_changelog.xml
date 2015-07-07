@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+   <changeSet author="htran (generated)" id="1436188439804-1">
+      <addColumn tableName="PROVINCE">
+         <column name="region_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="htran (generated)" id="1436188439804-2">
+      <addForeignKeyConstraint baseColumnNames="region_id"
+                               baseTableName="PROVINCE"
+                               constraintName="FK_9wf5r4lfp47y0yo1jryhsg6o0"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="REGION"/>
+   </changeSet>
+   <changeSet author="htran (generated)" id="1436188439804-3">
+      <dropForeignKeyConstraint baseTableName="province"
+                                constraintName="fk_province_region_province_id"/>
+   </changeSet>
+   <changeSet author="htran (generated)" id="1436188439804-4">
+      <dropColumn columnName="region_province_id" tableName="province"/>
+   </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,20 @@
+{
+    "ppmApp": {
+        "district" : {
+            "home": {
+                "title": "Districts",
+                "createLabel": "Create a new District",
+                "createOrEditLabel": "Create or edit a District"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete District {{ id }}?"
+            },
+            "detail": {
+                "title": "District"
+            },
+            "name": "Name",
+            "active": "Active",
+            "province": "Province"
+        }
+    }
+}

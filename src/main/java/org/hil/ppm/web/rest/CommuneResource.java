@@ -96,6 +96,15 @@ public class CommuneResource {
         log.debug("REST request to get all Communes");        
         return communeRepository.findAllByActiveIsTrueAndDistrictId(districtId);
     }
+    
+    @RequestMapping(value = "/communes/p/{provinceId}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Commune> getAllCommuneByProvince(@PathVariable Long provinceId) {
+        log.debug("REST request to get all Communes");        
+        return communeRepository.findAllByActiveIsTrueAndProvinceId(provinceId);
+    }
 
     /**
      * GET  /communes/:id -> get the "id" commune.

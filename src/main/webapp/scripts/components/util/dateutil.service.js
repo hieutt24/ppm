@@ -3,15 +3,19 @@
 angular.module('ppmApp')
     .service('DateUtils', function () {
       this.convertLocaleDateToServer = function(date) {
-        if (date) {
-          var utcDate = new Date();
-          utcDate.setUTCDate(date.getDate());
-          utcDate.setUTCMonth(date.getMonth());
-          utcDate.setUTCFullYear(date.getFullYear());
-          return utcDate;
-        } else {
-          return null;
-        }
+//        if (date) {
+//          var utcDate = new Date();
+//          utcDate.setUTCDate(date.getDate());
+//          utcDate.setUTCMonth(date.getMonth());
+//          utcDate.setUTCFullYear(date.getFullYear());
+//          return utcDate;
+//        } else {
+//          return null;
+//        }
+    	  var pattern = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+          var arrayDate = date.match(pattern);
+          var dt = new Date(arrayDate[3], arrayDate[2] - 1, arrayDate[1]);
+          return dt;
       };
       this.convertLocaleDateFromServer = function(date) {
         if (date) {

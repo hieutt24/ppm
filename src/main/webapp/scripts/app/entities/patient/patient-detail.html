@@ -1,0 +1,110 @@
+
+<div>
+    <h2><span translate="ppmApp.patient.detail.title">Patient</span> {{patient.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.fullname">Fullname</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.fullname}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.age">Age</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.age}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.sex">Sex</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.sex}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.communeId">CommuneId</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.communeId}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.districtId">DistrictId</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.districtId}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.address">Address</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.address}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.exam_date">Exam_date</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.exam_date}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.referred_from">Referred_from</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.referred_from}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.referred_by">Referred_by</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.referred_by}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.phlegm_test">Phlegm_test</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.phlegm_test}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ppmApp.patient.exam_result">Exam_result</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{patient.exam_result}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="patient"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

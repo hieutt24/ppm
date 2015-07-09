@@ -1,0 +1,39 @@
+{
+    "ppmApp": {
+        "patient" : {
+            "home": {
+                "title": "Patients",
+                "createLabel": "Create a new Patient",
+                "createOrEditLabel": "Create or edit a Patient"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Patient {{ id }}?"
+            },
+            "detail": {
+                "title": "Patient"
+            },
+            "fullname": "Fullname",
+            "age": "Age",
+            "sex": {
+            	"title": "Gender",
+            	"female": "Female",
+            	"male": "Male"
+            },
+            "communeId": "CommuneId",
+            "districtId": "DistrictId",
+            "address": "Address",
+            "examDate": "Exam date",
+            "referredFrom": "Referred from",
+            "referredBy": "Referred by",
+            "phlegmTest": "Phlegm test",
+            "examResult": "Exam result",
+            "district": "District",
+            "province": "Province",
+            "commune": "Commune",
+            "private_clinic": "Private clinic",
+    		"private_hospital": "Private hospital",
+    		"yes": "Yes",
+    		"no": "No"
+        }
+    }
+}

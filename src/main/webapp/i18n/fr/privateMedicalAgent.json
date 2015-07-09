@@ -1,0 +1,22 @@
+{
+    "ppmApp": {
+        "privateMedicalAgent" : {
+            "home": {
+                "title": "PrivateMedicalAgents",
+                "createLabel": "Créer un nouveau PrivateMedicalAgent",
+                "createOrEditLabel": "Créer ou éditer un PrivateMedicalAgent"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le PrivateMedicalAgent {{ id }} ?"
+            },
+            "detail": {
+                "title": "PrivateMedicalAgent"
+            },
+            "name": "Name",
+            "type": "Type",
+            "communeId": "CommuneId",
+            "active": "Active"
+        }
+    }
+}
+

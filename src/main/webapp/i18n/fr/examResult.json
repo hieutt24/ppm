@@ -1,0 +1,19 @@
+{
+    "ppmApp": {
+        "examResult" : {
+            "home": {
+                "title": "ExamResults",
+                "createLabel": "Créer un nouveau ExamResult",
+                "createOrEditLabel": "Créer ou éditer un ExamResult"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ExamResult {{ id }} ?"
+            },
+            "detail": {
+                "title": "ExamResult"
+            },
+            "name": "Name"
+        }
+    }
+}
+

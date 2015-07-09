@@ -1,0 +1,207 @@
+<div>
+
+    <h2 translate="ppmApp.patient.home.title">Patients</h2>
+
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-8">
+                <form name="searchForm" class="form-inline">
+                	<div class="form-group">
+	                    <label translate="ppmApp.patient.province">Province</label>
+	                    <select class="form-control" id="filterByProvince" ng-change="getDistrictByProvince()" ng-model="filterByProvince" ng-options="province.id as province.name for province in provinces">
+                        </select>
+                        <label translate="ppmApp.patient.district">District</label>
+	                    <select class="form-control" id="filterByDistrict" ng-model="filterByDistrict" ng-options="district.id as district.name for district in districts">
+                        </select>
+	                </div>
+	                
+                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Search</span>
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#savePatientModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="ppmApp.patient.home.createLabel">Create a new Patient</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="savePatientModal" tabindex="-1" role="dialog" aria-labelledby="myPatientLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myPatientLabel" translate="ppmApp.patient.home.createOrEditLabel">Create or edit a Patient</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-inline">
+                            <label translate="global.field.id">ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="patient.id" readonly style="width:30px;">
+                                   
+                            <label translate="ppmApp.patient.fullname">Fullname</label>
+                            <input type="text" class="form-control" name="fullname"
+                                   ng-model="patient.fullname">
+                            
+                            <label translate="ppmApp.patient.age">Age</label>
+                            <input type="number" class="form-control" name="age"
+                                   ng-model="patient.age" style="width:60px;">
+                                   
+                            <label translate="ppmApp.patient.sex.title">Sex</label>
+                            <select type="checkbox" class="form-control" name="sex"
+                                   ng-model="patient.sex" ng-options="sex.id as sex.name for sex in sexs"></select>
+                        </div>
+                        
+                        <div class="form-inline" style="margin-top:5px;">
+                            <label translate="ppmApp.patient.province">Province</label>
+                            <select class="form-control" name="provinceId"
+                                   ng-model="patient.provinceId" ng-change="getPatientDistrict();getPrivateMedicalAgents(patient.provinceId);" ng-options="province.id as province.name for province in provinces"></select>
+<label translate="ppmApp.patient.district">District</label>
+                            <select class="form-control" name="districtId"
+                                   ng-model="patient.districtId" ng-change="getPatientCommune()" ng-options="district.id as district.name for district in pdistricts"></select>
+                            <label translate="ppmApp.patient.commune">Commune</label>
+                            <select class="form-control" name="communeId"
+                                   ng-model="patient.communeId" ng-options="commune.id as commune.name for commune in pcommunes"></select>
+                        </div>
+
+                        <div class="form-inline" style="margin-top:5px;">
+                            <label translate="ppmApp.patient.address">Address</label>
+                            <input type="text" class="form-control" name="address"
+                                   ng-model="patient.address" style="max-width:500px;">
+
+                        </div>
+                        <div class="form-inline" style="margin-top:5px;">
+                            <label translate="ppmApp.patient.examDate">Exam date</label>
+                            <input kendo-date-picker ng-model="patient.examDate" k-ng-model="dateObject" k-format="'dd/MM/yyyy'" style="width: 130px;" />
+							
+                        </div>
+                        <div class="form-inline" style="margin-top:5px;">                                 
+                            <label translate="ppmApp.patient.referredBy">Referred by</label>
+                            <select type="number" class="form-control" name="referredBy"
+                                   ng-model="patient.referredBy" ng-options="agent.id as agent.name for agent in privateMedicalAgents"></select>
+
+                        </div>
+
+                        <div class="form-inline" style="margin-top:5px;">
+                            <label translate="ppmApp.patient.phlegmTest">Phlegm test</label>
+                            <input type="checkbox" class="form-control" name="phlegmTest"
+                                   ng-model="patient.phlegmTest">
+                                   
+                            <label translate="ppmApp.patient.examResult">Exam result</label>
+                            <select type="number" class="form-control" name="examResult"
+                                   ng-model="patient.examResult" ng-options="examresult.id as examresult.name for examresult in examResults"></select>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deletePatientConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(patient.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="ppmApp.patient.delete.question" translate-values="{id: '{{patient.id}}'}">Are you sure you want to delete this Patient?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="ppmApp.patient.fullname">Fullname</th>
+                    <th translate="ppmApp.patient.age">Age</th>
+                    <th translate="ppmApp.patient.sex.title">Sex</th>
+                    <th translate="ppmApp.patient.commune">Commune</th>
+                    <th translate="ppmApp.patient.district">District</th>
+                    <th translate="ppmApp.patient.address">Address</th>
+                    <th translate="ppmApp.patient.examDate">Exam date</th>
+                    <th translate="ppmApp.patient.referredBy">Referred by</th>
+                    <th translate="ppmApp.patient.referredFrom">Referred from</th>                    
+                    <th translate="ppmApp.patient.phlegmTest">Phlegm test</th>
+                    <th translate="ppmApp.patient.examResult">Exam result</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="patient in patients">
+                    <td><a ui-sref="patientDetail({id:patient.id})">{{patient.id}}</a></td>
+                    <td>{{patient.fullname}}</td>
+                    <td>{{patient.age}}</td>
+                    <td>{{sexs[patient.sex-1].name}}</td>
+                    <td>{{patient.communeName}}</td>
+                    <td>{{patient.districtName}}</td>
+                    <td>{{patient.address}}</td>
+                    <td>{{patient.examDate | date:'dd/MM/yyyy'}}</td>
+                    <td>{{patient.referredByName}}</td>
+                    <td>{{agentTypes[patient.referredByType-1].name}}</td>                    
+                    <td>{{patient.phlegmTest ? labelYes : labelNo }}</td>
+                    <td>{{examResults[patient.examResult-1].name}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="patientDetail({id:patient.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(patient.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(patient.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a>&lt;</a></li>
+                <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
+                <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
+                <li class="active"><a>{{page}}</a></li>
+                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
+                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,16 +1,16 @@
 <div>
 
-    <h2 translate="ppmApp.commune.home.title">Communes</h2>
+    <h2 translate="ppmApp.privateMedicalAgent.home.title">PrivateMedicalAgents</h2>
 
     <div class="container">
         <div class="row">
         	<div class="col-md-8">
                 <form name="searchForm" class="form-inline">
                 	<div class="form-group">
-	                    <label translate="ppmApp.commune.province">Province</label>
-	                    <select class="form-control" id="filterByProvince" ng-change="getDistrictByProvince()" ng-model="filterByProvince" ng-options="province.id as province.name for province in provinces">
+	                    <label translate="ppmApp.privateMedicalAgent.province">Province</label>
+	                    <select class="form-control" id="filterByProvince" ng-change="getDistrictByProvince();" ng-model="filterByProvince" ng-options="province.id as province.name for province in provinces">
                         </select>
-                        <label translate="ppmApp.commune.district">District</label>
+                        <label translate="ppmApp.privateMedicalAgent.district">District</label>
 	                    <select class="form-control" id="filterByDistrict" ng-model="filterByDistrict" ng-options="district.id as district.name for district in districts">
                         </select>
 	                </div>
@@ -19,14 +19,14 @@
                 </form>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#saveCommuneModal" ng-click="clear()">
-                    <span class="glyphicon glyphicon-flash"></span> <span translate="ppmApp.commune.home.createLabel">Create</span>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#savePrivateMedicalAgentModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="ppmApp.privateMedicalAgent.home.createLabel">Create a new PrivateMedicalAgent</span>
                 </button>
-            </div>            
+            </div>
         </div>
     </div>
 
-    <div class="modal fade" id="saveCommuneModal" tabindex="-1" role="dialog" aria-labelledby="myCommuneLabel"
+    <div class="modal fade" id="savePrivateMedicalAgentModal" tabindex="-1" role="dialog" aria-labelledby="myPrivateMedicalAgentLabel"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -35,29 +35,41 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" id="myCommuneLabel" translate="ppmApp.commune.home.createOrEditLabel">Create or edit a Commune</h4>
+                        <h4 class="modal-title" id="myPrivateMedicalAgentLabel" translate="ppmApp.privateMedicalAgent.home.createOrEditLabel">Create or edit a PrivateMedicalAgent</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <label translate="global.field.id">ID</label>
                             <input type="text" class="form-control" name="id"
-                                   ng-model="commune.id" readonly>
+                                   ng-model="privateMedicalAgent.id" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label translate="ppmApp.commune.name">Name</label>
+                            <label translate="ppmApp.privateMedicalAgent.name">Name</label>
                             <input type="text" class="form-control" name="name"
-                                   ng-model="commune.name">
+                                   ng-model="privateMedicalAgent.name">
 
                         </div>
-                        <input type="text" class="form-control" style="display:none;" name="districtId"
-                                   ng-model="commune.districtId">
-                        <label translate="ppmApp.commune.province">Province</label>
-	                    <select class="form-control" name="province" disabled ng-model="province" ng-options="province.id as province.name for province in provinces">
+                        <div class="form-group">
+                            <label translate="ppmApp.privateMedicalAgent.type">Type</label>
+                            <select class="form-control" name="type"
+                                   ng-model="privateMedicalAgent.type" ng-options="item.id as item.name for item in agentTypes"></select>
+
+                        </div>
+
+                        <label translate="ppmApp.privateMedicalAgent.province">Province</label>
+	                    <select class="form-control" name="provinceId" disabled ng-model="privateMedicalAgent.provinceId" ng-options="province.id as province.name for province in provinces">
                         </select>
-                        <label translate="ppmApp.commune.district">District</label>
-	                    <select class="form-control" name="district" disabled ng-model="district" ng-options="district.id as district.name for district in districts">
+                        <label translate="ppmApp.privateMedicalAgent.district">District</label>
+	                    <select class="form-control" name="districtId" ng-model="privateMedicalAgent.districtId" ng-change="getCommuneByDistrict(privateMedicalAgent.districtId)" ng-options="district.id as district.name for district in districts">
                         </select>
+                        
+                        <div class="form-group">
+                            <label translate="ppmApp.privateMedicalAgent.commune">Commune</label>
+                            <select type="number" class="form-control" name="communeId"
+                                   ng-model="privateMedicalAgent.communeId" ng-options="commune.id as commune.name for commune in communes"></select>
+
+                        </div>                        
 
                     </div>
                     <div class="modal-footer">
@@ -73,17 +85,17 @@
         </div>
     </div>
 
-    <div class="modal fade" id="deleteCommuneConfirmation">
+    <div class="modal fade" id="deletePrivateMedicalAgentConfirmation">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form name="deleteForm" ng-submit="confirmDelete(commune.id)">
+                <form name="deleteForm" ng-submit="confirmDelete(privateMedicalAgent.id)">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
                         <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
                     </div>
                     <div class="modal-body">
-                        <p translate="ppmApp.commune.delete.question" translate-values="{id: '{{commune.id}}'}">Are you sure you want to delete this Commune?</p>
+                        <p translate="ppmApp.privateMedicalAgent.delete.question" translate-values="{id: '{{privateMedicalAgent.id}}'}">Are you sure you want to delete this PrivateMedicalAgent?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
@@ -103,22 +115,28 @@
             <thead>
                 <tr>
                     <th translate="global.field.id">ID</th>
-                    <th translate="ppmApp.commune.name">Name</th>
+                    <th translate="ppmApp.privateMedicalAgent.name">Name</th>
+                    <th translate="ppmApp.privateMedicalAgent.type">Type</th>
+                    <th translate="ppmApp.privateMedicalAgent.district">District</th>
+                    <th translate="ppmApp.privateMedicalAgent.commune">Commune</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="commune in communes">
-                    <td><a ui-sref="communeDetail({id:commune.id})">{{commune.id}}</a></td>
-                    <td>{{commune.name}}</td>
-                    <td>
+                <tr ng-repeat="privateMedicalAgent in privateMedicalAgents">
+                    <td><a ui-sref="privateMedicalAgentDetail({id:privateMedicalAgent.id})">{{privateMedicalAgent.id}}</a></td>
+                    <td>{{privateMedicalAgent.name}}</td>
+                    <td>{{agentTypes[privateMedicalAgent.type-1].name}}</td>
+                    <td>{{privateMedicalAgent.districtName}}</td>
+                    <td>{{privateMedicalAgent.communeName}}</td>
+                    <td>                        
                         <button type="submit"
-                                ng-click="showUpdate(commune.id)"
+                                ng-click="showUpdate(privateMedicalAgent.id)"
                                 class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
                         </button>
                         <button type="submit"
-                                ng-click="delete(commune.id)"
+                                ng-click="delete(privateMedicalAgent.id)"
                                 class="btn btn-danger btn-sm">
                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
                         </button>

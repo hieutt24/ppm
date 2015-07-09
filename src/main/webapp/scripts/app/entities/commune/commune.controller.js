@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ppmApp')
-    .controller('CommuneController', function ($scope, $http, $resource, Commune, District, Province, CommuneSearch) {
+    .controller('CommuneController', function ($scope, $http, Commune, District, Province, CommuneSearch) {
         $scope.communes = [];
         $scope.provinces = Province.query();
         $scope.districts = [];

@@ -9,9 +9,18 @@
     <include file="classpath:config/liquibase/changelog/20150706084101_added_entity_Region.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150706090656_added_entity_Province.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150706145141_added_entity_District.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150707091952_added_entity_Patient.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150707170005_added_entity_ExamResult.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150707170645_added_entity_PrivateMedicalAgent.xml" relativeToChangelogFile="false"/>
     <!-- JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20150706130014_changelog.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150706131353_changelog.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150707054645_changelog.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150707065419_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150707142440_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150707144314_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150708063005_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150708092812_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150708170829_changelog.xml" relativeToChangelogFile="false"/>
+    
 </databaseChangeLog>

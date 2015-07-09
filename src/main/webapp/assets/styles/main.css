@@ -171,3 +171,6 @@ h2, .h2 {
     font-size: 22px;
     color:#FE9950;
 }
+.modal-dialog {
+	width:70%;
+}

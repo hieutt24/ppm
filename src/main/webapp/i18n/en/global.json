@@ -11,6 +11,9 @@
                 "province": "Province",
                 "district": "District",
                 "commune": "Commune",
+                "patient": "Patient",
+                "examResult": "ExamResult",
+                "privateMedicalAgent": "PrivateMedicalAgent",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -103,6 +106,6 @@
             "number": "This field should be a number.",
             "datetimelocal": "This field should be a date and time."
         }
-    },
+    },    
     "footer": "© 2015 Vietnamese National Tuberculosis Program & PATH"
 }

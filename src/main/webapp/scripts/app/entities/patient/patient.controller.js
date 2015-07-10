@@ -8,10 +8,12 @@ angular.module('ppmApp')
         $scope.privateMedicalAgents = [];$scope.examResults = ExamResult.query();
         $scope.pcommunes = [];
         $scope.page = 1;
-        
+        $scope.patientTotal = 0;
+        $scope.patientparams = {};
         var $translate = $filter('translate');
         $scope.labelYes = $translate('ppmApp.patient.yes');
         $scope.labelNo = $translate('ppmApp.patient.no');
+        kendo.culture("vi-VN");	
         $scope.sexs = [
                      		{id: 1, name: $translate('ppmApp.patient.sex.female')},
                             {id: 2, name: $translate('ppmApp.patient.sex.male')}                
@@ -25,12 +27,12 @@ angular.module('ppmApp')
         	$http.get('/api/districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});        	
         }
         
-        $scope.getPatientDistrict = function() {
-        	$http.get('/api/districts/p/' + $scope.patient.provinceId).success(function(result){$scope.pdistricts = result;});
+        $scope.getPatientDistrict = function(provinceId) {
+        	$http.get('/api/districts/p/' + provinceId).success(function(result){$scope.pdistricts = result;});
         }
         
-        $scope.getPatientCommune = function() {
-        	$http.get('/api/communes/d/' + $scope.patient.districtId).success(function(result){$scope.pcommunes = result;});
+        $scope.getPatientCommune = function(districtId) {
+        	$http.get('/api/communes/d/' + districtId).success(function(result){$scope.pcommunes = result;});
         }
         
         $scope.getPrivateMedicalAgents = function(provinceId) {
@@ -39,20 +41,23 @@ angular.module('ppmApp')
         }
         
         $scope.loadAll = function() {
-            Patient.query({page: $scope.page, per_page: 20}, function(result, headers) {
+            Patient.query({page: $scope.page, per_page: 3}, function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 $scope.patients = result;
             });
         };
         $scope.loadPage = function(page) {
             $scope.page = page;
-            $scope.loadAll();
+            $scope.search();
         };
         //$scope.loadAll();
 
         $scope.showUpdate = function (id) {
             Patient.get({id: id}, function(result) {
                 $scope.patient = result;
+                $scope.getPatientDistrict($scope.patient.provinceId);
+                $scope.getPatientCommune($scope.patient.districtId);
+                $scope.getPrivateMedicalAgents($scope.patient.provinceId);
                 $('#savePatientModal').modal('show');
             });
         };
@@ -96,9 +101,33 @@ angular.module('ppmApp')
 //                }
 //            });
         	
-        	var inputDistrict = $scope.filterByDistrict ? $scope.filterByDistrict : 0;
-        	$http.get('/api/patients/p/d/c/' + $scope.filterByProvince + '/' + inputDistrict + '/0')
-        	.success(function(result){$scope.patients = result;});
+//        	var inputDistrict = $scope.filterByDistrict ? $scope.filterByDistrict : 0;
+//        	$http.get('/api/patients/p/d/c/' + $scope.filterByProvince + '/' + inputDistrict + '/0')
+//        	.success(function(result){$scope.patients = result;});
+        	
+        	$scope.patientparams.provinceId = $scope.filterByProvince ? $scope.filterByProvince : 0;
+        	$scope.patientparams.districtId = $scope.filterByDistrict ? $scope.filterByDistrict : 0;
+        	$scope.patientparams.communeId = 0;
+        	$scope.patientparams.offset = $scope.page;
+        	$scope.patientparams.limit = 20;
+        	$scope.patientparams.examResultId = $scope.filterByExamResult ? $scope.filterByExamResult : 0;
+        	$scope.patientparams.exportExcel = 0;
+        	$http({
+        	      url: '/api/patients/search',
+        	      method: "POST",
+        	      data: $scope.patientparams,
+        	      headers: {
+        	        'Content-Type': 'application/json'
+        	      }
+        	    })
+        	    .success(function(data, status, headers, config) {
+        	    	$scope.patients = data;
+                    $scope.links = ParseLinks.parse(headers('link'));
+                    $scope.patientTotal = headers('GRIDTOTAL');
+                })
+                .error(function (data, status) {
+        	      console.log('getResult error.');
+        	    });
         };
 
         $scope.refresh = function () {
@@ -114,6 +143,36 @@ angular.module('ppmApp')
             
         };
         
+        $scope.setbgcolor = function (patient) {
+        	if (patient.examResult == 2) {
+                return {
+                    background: "#FFC7CE"
+                }
+            } else if (patient.examResult == 3) {
+            	return {
+            		background: "#FFEB9C"
+            	}
+            }
+        } 
         
+        $scope.exportExcel = function() {
+        	if ($scope.patientTotal > 0) {
+        		$scope.patientparams.exportExcel = 1;
+        		$http({
+          	      url: '/api/patients/excel',
+          	      method: "POST",
+          	      data: $scope.patientparams,
+          	      headers: {
+          	        'Content-Type': 'application/json'
+          	      }
+          	    })
+          	    .success(function(data, status) {
+          	    	window.open("/assets/ppm_.xls",'_blank');
+                  })
+                  .error(function (data, status) {
+          	      console.log('getResult error.');
+          	    });
+        	}
+        }
        
     });

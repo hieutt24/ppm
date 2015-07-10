@@ -8,7 +8,7 @@ angular.module('ppmApp')
                 method: 'GET',
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
-                    data.examDate = DateUtils.convertLocaleDateToServer(data.examDate);
+                    data.examDate = DateUtils.convertLocaleDateFromServer(data.examDate);
                     return data;
                 }
             },

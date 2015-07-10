@@ -11,8 +11,8 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="isAuthenticated()">
             <ul class="nav navbar-nav nav-pills navbar-right">
-                <li ui-sref-active="active">
-                    <a ui-sref="home">
+                <li ui-sref-active="active" ng-switch-when="true" has-role="ROLE_USER">
+                    <a ui-sref="patient">
                         <span class="glyphicon glyphicon-home"></span>
                         <span translate="global.menu.referred_patient">Patients</span>
                     </a>
@@ -36,8 +36,7 @@
                         &#xA0;<span translate="global.menu.entities.district">district</span></a></li>
                         <li ui-sref-active="active" ><a ui-sref="commune"><span class="glyphicon glyphicon-asterisk"></span>
                         &#xA0;<span translate="global.menu.entities.commune">commune</span></a></li>
-                        <li ui-sref-active="active" ><a ui-sref="patient"><span class="glyphicon glyphicon-asterisk"></span>
-                        &#xA0;<span translate="global.menu.entities.patient">patient</span></a></li>
+                        
                         <li ui-sref-active="active" ><a ui-sref="examResult"><span class="glyphicon glyphicon-asterisk"></span>
                         &#xA0;<span translate="global.menu.entities.examResult">examResult</span></a></li>
                         <li ui-sref-active="active" ><a ui-sref="privateMedicalAgent"><span class="glyphicon glyphicon-asterisk"></span>
@@ -67,8 +66,6 @@
                         <li ui-sref-active="active" ng-switch-when="false"><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span>
                             &#xA0;<span translate="global.menu.account.login">Authenticate</span></a></li>
 
-                        <li ui-sref-active="active" ng-switch-when="false"><a ui-sref="register"><span class="glyphicon glyphicon-plus-sign"></span>
-                            &#xA0;<span translate="global.menu.account.register">Register</span></a></li>
                     </ul>
                 </li>
                 <li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-role="ROLE_ADMIN" class="dropdown pointer">

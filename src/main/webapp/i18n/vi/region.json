@@ -2,17 +2,17 @@
     "ppmApp": {
         "region" : {
             "home": {
-                "title": "Regions",
-                "createLabel": "Create a new Region",
-                "createOrEditLabel": "Create or edit a Region"
+                "title": "Danh mục miền",
+                "createLabel": "Tạo mới",
+                "createOrEditLabel": "Thông tin chi tiết"
             },
             "delete": {
-                "question": "Are you sure you want to delete Region {{ id }}?"
+                "question": "Bạn có chắc chắn muốn xóa dữ liệu này?"
             },
             "detail": {
-                "title": "Region"
+                "title": "Miền"
             },
-            "name": "Name",
+            "name": "Tên",
             "active": "Active"
         }
     }

@@ -169,8 +169,22 @@ ul#strengthBar {
 }
 h2, .h2 {
     font-size: 22px;
-    color:#FE9950;
+    color:#BF2E1A;
+    margin-top:0px;
+    padding-top:0px;
 }
 .modal-dialog {
 	width:70%;
+}
+.container {
+    width: 100%;
+}
+.patienttotal {
+	font-weight:bold;
+	color:#FE9950;
+}
+.patienttotal:hover {
+	font-weight:bold;
+	color:#FE9950;
+	cursor: pointer;
 }

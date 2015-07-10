@@ -1,0 +1,18 @@
+{
+    "ppmApp": {
+        "examResult" : {
+            "home": {
+                "title": "Danh mục kết quả xét nghiệm",
+                "createLabel": "Thêm mới",
+                "createOrEditLabel": "Create or edit a ExamResult"
+            },
+            "delete": {
+                "question": "Bạn có chắc chắn muốn xóa dữ liệu này?"
+            },
+            "detail": {
+                "title": "Kết quả xét nghiệm"
+            },
+            "name": "Kết quả"
+        }
+    }
+}

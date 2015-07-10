@@ -1,22 +1,19 @@
 {
     "ppmApp": {
-        "commune" : {
+        "district" : {
             "home": {
-                "title": "Danh mục xã",
+                "title": "Danh mục huyện",
                 "createLabel": "Thêm mới",
-                "createOrEditLabel": "Create or edit a Commune"
+                "createOrEditLabel": "Thông tin chi tiết"
             },
             "delete": {
                 "question": "Bạn có chắc chắn muốn xóa dữ liệu này?"
             },
             "detail": {
-                "title": "Xã"
+                "title": "Huyện"
             },
             "name": "Tên",
-            "districtId": "Huyện",
             "active": "Active",
-            "createdDate": "Created date",
-            "district": "Huyện",
             "province": "Tỉnh",
             "search": "Tìm"
         }

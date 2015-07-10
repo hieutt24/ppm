@@ -47,6 +47,7 @@ angular.module('ppmApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprec
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
         };
+
     })
     .factory('authExpiredInterceptor', function ($rootScope, $q, $injector, localStorageService) {
         return {

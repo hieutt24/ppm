@@ -1,23 +1,28 @@
 {
     "global": {
-        "title": "ppm",
+        "title": "PPM",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
-            "home": "Trang chủ",
+            "home": "Home",
+            "referred_patient": "Danh sách chuyển gửi",
             "entities": {
-                "main": "Danh mục",
-                "commune": "Xã",
+                "main": "Danh mục",                
                 "region": "Miền",
                 "province": "Tỉnh",
+                "district": "Huyện",
+                "commune": "Xã",
+                "patient": "Bệnh nhân",
+                "examResult": "Kết quả XN",
+                "privateMedicalAgent": "Cơ sở tư nhân",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
-                "main": "Account",
-                "settings": "Settings",
-                "password": "Password",
+                "main": "Tài khoản",
+                "settings": "Thông tin",
+                "password": "Mật khẩu",
                 "sessions": "Sessions",
-                "login": "Authenticate",
-                "logout": "Log out",
+                "login": "Đăng nhập",
+                "logout": "Đăng xuất",
                 "register": "Register"
             },
             "admin": {
@@ -31,11 +36,11 @@
                 "apidocs": "API",
                 "database": "Database"
             },
-            "language": "Language"
+            "language": "Ngôn ngữ"
         },
         "form": {
-            "username": "Login",
-            "username.placeholder": "Your login",
+            "username": "Tài khoản",
+            "username.placeholder": "Tài khoản của bạn",
             "newpassword": "New password",
             "newpassword.placeholder": "New password",
             "confirmpassword": "New password confirmation",
@@ -77,12 +82,13 @@
     },
     "entity": {
         "action": {
-            "back": "Back",
-            "cancel": "Cancel",
-            "delete": "Delete",
-            "edit": "Edit",
-            "save": "Save",
-            "view": "View"
+            "back": "Quay lại",
+            "cancel": "Thoát",
+            "delete": "Xóa",
+            "edit": "Xem",
+            "save": "Lưu",
+            "view": "Xem",
+            "search": "Tìm kiếm"
         },
         "detail": {
             "field": "Field",
@@ -101,6 +107,6 @@
             "number": "This field should be a number.",
             "datetimelocal": "This field should be a date and time."
         }
-    },
-    "footer": "This is your footer"
+    },    
+    "footer": "© 2015 Chương trình phòng chống Lao Quốc gia & Tổ chức PATH"
 }

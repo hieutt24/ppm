@@ -78,7 +78,7 @@ public class ProvinceResource {
     @Timed
     public List<Province> getAll() {
         log.debug("REST request to get all Provinces");
-        return provinceRepository.findAllByActiveIsTrue();
+        return provinceRepository.findAllByActiveIsTrueOrderByNameAsc();
     }
 
     /**

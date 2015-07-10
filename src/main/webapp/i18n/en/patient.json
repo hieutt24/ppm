@@ -33,7 +33,10 @@
             "private_clinic": "Private clinic",
     		"private_hospital": "Private hospital",
     		"yes": "Yes",
-    		"no": "No"
+    		"no": "No",
+    		"patient": "patients",
+    		"excel": "Excel",
+    		"search": "Search"
         }
     }
 }

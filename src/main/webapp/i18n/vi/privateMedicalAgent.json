@@ -1,23 +1,26 @@
 {
     "ppmApp": {
-        "commune" : {
+        "privateMedicalAgent" : {
             "home": {
-                "title": "Danh mục xã",
+                "title": "Danh mục cơ sở y tế tư nhân",
                 "createLabel": "Thêm mới",
-                "createOrEditLabel": "Create or edit a Commune"
+                "createOrEditLabel": "Create or edit a PrivateMedicalAgent"
             },
             "delete": {
                 "question": "Bạn có chắc chắn muốn xóa dữ liệu này?"
             },
             "detail": {
-                "title": "Xã"
+                "title": "Cơ sở y tế tư nhân"
             },
             "name": "Tên",
-            "districtId": "Huyện",
+            "type": "Loại",
+            "communeId": "CommuneId",
             "active": "Active",
-            "createdDate": "Created date",
+            "commune": "Xã",
             "district": "Huyện",
             "province": "Tỉnh",
+            "private_clinic": "PK Tư",
+            "private_hospital": "BV Tư",
             "search": "Tìm"
         }
     }

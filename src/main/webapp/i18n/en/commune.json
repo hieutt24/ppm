@@ -17,7 +17,8 @@
             "active": "Active",
             "createdDate": "Created date",
             "district": "District",
-            "province": "Province"
+            "province": "Province",
+            "search": "Search"
         }
     }
 }

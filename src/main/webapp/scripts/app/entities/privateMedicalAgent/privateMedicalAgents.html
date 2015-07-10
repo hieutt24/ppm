@@ -14,14 +14,12 @@
 	                    <select class="form-control" id="filterByDistrict" ng-model="filterByDistrict" ng-options="district.id as district.name for district in districts">
                         </select>
 	                </div>
-                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Search</span>
+                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span translate="ppmApp.privateMedicalAgent.search">Search</span>
                     </button>
-                </form>
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#savePrivateMedicalAgentModal" ng-click="clear()">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#savePrivateMedicalAgentModal" ng-click="clear()">
                     <span class="glyphicon glyphicon-flash"></span> <span translate="ppmApp.privateMedicalAgent.home.createLabel">Create a new PrivateMedicalAgent</span>
                 </button>
+                </form>
             </div>
         </div>
     </div>

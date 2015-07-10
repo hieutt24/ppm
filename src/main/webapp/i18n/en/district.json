@@ -14,7 +14,8 @@
             },
             "name": "Name",
             "active": "Active",
-            "province": "Province"
+            "province": "Province",
+            "search": "Search"
         }
     }
 }

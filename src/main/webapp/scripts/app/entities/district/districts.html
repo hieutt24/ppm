@@ -11,14 +11,12 @@
 	                    <select class="form-control" id="filterByProvince" ng-model="filterByProvince" ng-options="province.id as province.name for province in provinces">
                         </select>
 	                </div>
-                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Search</span>
+                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span translate="ppmApp.district.search">Search</span>
                     </button>
-                </form>
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#saveDistrictModal" ng-click="clear()">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#saveDistrictModal" ng-click="clear()">
                     <span class="glyphicon glyphicon-flash"></span> <span translate="ppmApp.district.home.createLabel">Create a new District</span>
                 </button>
+                </form>
             </div>
         </div>
     </div>

@@ -1,0 +1,42 @@
+{
+    "ppmApp": {
+        "patient" : {
+            "home": {
+                "title": "Danh sách các ca nghi lao (được chuyển) đã khám, xét nghiệm",
+                "createLabel": "Tạo mới",
+                "createOrEditLabel": "Thông tin chi tiết của bệnh nhân"
+            },
+            "delete": {
+                "question": "Bạn có chắc chắn muốn xóa thông tin bệnh nhân {{ id }}?"
+            },
+            "detail": {
+                "title": "Bệnh nhân"
+            },
+            "fullname": "Họ tên",
+            "age": "Tuổi",
+            "sex": {
+            	"title": "Giới tính",
+            	"female": "Nữ",
+            	"male": "Nam"
+            },
+            "communeId": "CommuneId",
+            "districtId": "DistrictId",
+            "address": "Địa chỉ",
+            "examDate": "Ngày khám",
+            "referredFrom": "Chuyển gửi từ",
+            "referredBy": "Đơn vị chuyển",
+            "phlegmTest": "XN đờm",
+            "examResult": "Kết quả XN",
+            "district": "Huyện",
+            "province": "Tỉnh",
+            "commune": "Xã",
+            "private_clinic": "PK Tư",
+    		"private_hospital": "BV Tư",
+    		"yes": "Có",
+    		"no": "Không",
+    		"patient": "bệnh nhân",
+    		"excel": "Excel",
+    		"search": "Tìm"
+        }
+    }
+}

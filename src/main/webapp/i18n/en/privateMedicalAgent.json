@@ -20,7 +20,8 @@
             "district": "District",
             "province": "Province",
             "private_clinic": "Private clinic",
-            "private_hospital": "Private hospital"
+            "private_hospital": "Private hospital",
+            "search": "Search"
         }
     }
 }

@@ -1,15 +1,14 @@
 'use strict';
 
 angular.module('ppmApp')
-    .controller('PrivateMedicalAgentController', function ($scope, $http, PrivateMedicalAgent, Commune, District, Province, PrivateMedicalAgentSearch) {
-        $scope.privateMedicalAgents = [];
-        
+    .controller('PrivateMedicalAgentController', function ($scope, $http, $filter,PrivateMedicalAgent, Commune, District, Province, PrivateMedicalAgentSearch) {
+        $scope.privateMedicalAgents = [];        
         $scope.provinces = Province.query();
         $scope.districts = [];$scope.communes = [];
-        
+        var $translate = $filter('translate');
         $scope.agentTypes = [
                       		{id: 1, name: $translate('ppmApp.privateMedicalAgent.private_clinic')},
-                              {id: 2, name: $translate('ppmApp.privateMedicalAgent.private_clinic')}                
+                              {id: 2, name: $translate('ppmApp.privateMedicalAgent.private_hospital')}                
                       	];
         
         $scope.getDistrictByProvince = function() {

@@ -4,7 +4,8 @@
         "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
         "menu": {
             "home": "Accueil",
-            "entities": {
+            "referred_patient": "Danh sách chuyển gửi",
+            "entities": {            	
                 "main": "Entités",
                 "commune": "Commune",
                 "region": "Region",
@@ -86,7 +87,8 @@
             "edit": "Editer",
             "delete": "Supprimer",
             "save": "Sauvegarder",
-            "view": "Voir"
+            "view": "Voir",
+            "search": "Search"
         },
         "detail": {
             "field": "Champs",

@@ -16,10 +16,11 @@ angular.module('ppmApp')
             }).then(function () {
                 $scope.authenticationError = false;
                 if ($rootScope.previousStateName === 'register') {
-                    $state.go('home');
+                    $state.go('patient');
                 } else {
                     $rootScope.back();
                 }
+                $state.go('patient');
             }).catch(function () {
                 $scope.authenticationError = true;
             });

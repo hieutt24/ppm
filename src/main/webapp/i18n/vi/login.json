@@ -1,11 +1,11 @@
 {
     "login": {
-        "title": "Authentication",
+        "title": "Đăng nhập",
         "form": {
-            "password": "Password",
-            "password.placeholder": "Your password",
-            "rememberme": "Automatic Login",
-            "button": "Authenticate"
+            "password": "Mật khẩu",
+            "password.placeholder": "Mật khẩu của bạn",
+            "rememberme": "Ghi nhớ đăng nhập",
+            "button": "Đăng nhập"
         },
         "messages": {
             "error": {

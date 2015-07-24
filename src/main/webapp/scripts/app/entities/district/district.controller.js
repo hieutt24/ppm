@@ -4,7 +4,7 @@ angular.module('ppmApp')
     .controller('DistrictController', function ($scope, $http, District, Province, DistrictSearch) {
         $scope.districts = [];
         $scope.provinces = Province.query();
-
+        var contextPath = "/ppm/api/";
         $scope.showUpdate = function (id) {
             District.get({id: id}, function(result) {
                 $scope.district = result;
@@ -43,7 +43,7 @@ angular.module('ppmApp')
         };
 
         $scope.search = function () {
-        	$http.get('/api/districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});        	
+        	$http.get(contextPath + 'districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});        	
         };
 
         $scope.refresh = function () {

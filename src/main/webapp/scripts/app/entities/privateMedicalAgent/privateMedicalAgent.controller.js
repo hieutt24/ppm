@@ -5,6 +5,7 @@ angular.module('ppmApp')
         $scope.privateMedicalAgents = [];        
         $scope.provinces = Province.query();
         $scope.districts = [];$scope.communes = [];
+        var contextPath = "/ppm/api/";
         var $translate = $filter('translate');
         $scope.agentTypes = [
                       		{id: 1, name: $translate('ppmApp.privateMedicalAgent.private_clinic')},
@@ -12,11 +13,11 @@ angular.module('ppmApp')
                       	];
         
         $scope.getDistrictByProvince = function() {
-        	$http.get('/api/districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});
+        	$http.get(contextPath + 'districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});
         }
         
         $scope.getCommuneByDistrict = function(districtId) {
-        	$http.get('/api/communes/d/' + districtId).success(function(result){$scope.communes = result;});
+        	$http.get(contextPath + 'communes/d/' + districtId).success(function(result){$scope.communes = result;});
         }        
 
         $scope.showUpdate = function (id) {
@@ -59,7 +60,7 @@ angular.module('ppmApp')
 
         $scope.search = function () {
         	var inputDistrict = $scope.filterByDistrict ? $scope.filterByDistrict : 0;
-        	$http.get('/api/privateMedicalAgents/p/d/c/' + $scope.filterByProvince + '/' + inputDistrict + '/0')
+        	$http.get(contextPath + 'privateMedicalAgents/p/d/c/' + $scope.filterByProvince + '/' + inputDistrict + '/0')
         	.success(function(result){$scope.privateMedicalAgents = result;});
         };
 

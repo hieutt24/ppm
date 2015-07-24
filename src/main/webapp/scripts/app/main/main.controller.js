@@ -6,7 +6,7 @@ angular.module('ppmApp')
             $scope.account = account;
             $scope.isAuthenticated = Principal.isAuthenticated;
             if (!Principal.isAuthenticated()) {
-            	window.location.href = 'http://localhost:8080/#/login';
+            	window.location.href = 'http://210.211.124.200/ppm/#/login';
             }
         });
     });

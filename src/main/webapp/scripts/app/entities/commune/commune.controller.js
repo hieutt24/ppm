@@ -5,9 +5,9 @@ angular.module('ppmApp')
         $scope.communes = [];
         $scope.provinces = Province.query();
         $scope.districts = [];
-        
+        var contextPath = "/ppm/api/";
         $scope.getDistrictByProvince = function() {
-        	$http.get('/api/districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});
+        	$http.get(contextPath + 'districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});
         }
         
         $scope.showUpdate = function (id) {
@@ -50,7 +50,7 @@ angular.module('ppmApp')
         };
 
         $scope.search = function () {
-        	$http.get('/api/communes/d/' + $scope.filterByDistrict).success(function(result){$scope.communes = result;});
+        	$http.get(contextPath + 'communes/d/' + $scope.filterByDistrict).success(function(result){$scope.communes = result;});
         };
 
         $scope.refresh = function () {

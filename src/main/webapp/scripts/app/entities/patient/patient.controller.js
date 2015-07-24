@@ -14,6 +14,7 @@ angular.module('ppmApp')
         $scope.labelYes = $translate('ppmApp.patient.yes');
         $scope.labelNo = $translate('ppmApp.patient.no');
         kendo.culture("vi-VN");	
+        var contextPath = "/ppm/api/";
         $scope.sexs = [
                      		{id: 1, name: $translate('ppmApp.patient.sex.female')},
                             {id: 2, name: $translate('ppmApp.patient.sex.male')}                
@@ -24,19 +25,19 @@ angular.module('ppmApp')
                      	];
         
         $scope.getDistrictByProvince = function() {
-        	$http.get('/api/districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});        	
+        	$http.get(contextPath + 'districts/p/' + $scope.filterByProvince).success(function(result){$scope.districts = result;});        	
         }
         
         $scope.getPatientDistrict = function(provinceId) {
-        	$http.get('/api/districts/p/' + provinceId).success(function(result){$scope.pdistricts = result;});
+        	$http.get(contextPath + 'districts/p/' + provinceId).success(function(result){$scope.pdistricts = result;});
         }
         
         $scope.getPatientCommune = function(districtId) {
-        	$http.get('/api/communes/d/' + districtId).success(function(result){$scope.pcommunes = result;});
+        	$http.get(contextPath + 'communes/d/' + districtId).success(function(result){$scope.pcommunes = result;});
         }
         
         $scope.getPrivateMedicalAgents = function(provinceId) {
-        	$http.get('/api/privateMedicalAgents/p/d/c/' + provinceId + '/0/0')
+        	$http.get(contextPath + 'privateMedicalAgents/p/d/c/' + provinceId + '/0/0')
         	.success(function(result){$scope.privateMedicalAgents = result;});
         }
         
@@ -102,7 +103,7 @@ angular.module('ppmApp')
 //            });
         	
 //        	var inputDistrict = $scope.filterByDistrict ? $scope.filterByDistrict : 0;
-//        	$http.get('/api/patients/p/d/c/' + $scope.filterByProvince + '/' + inputDistrict + '/0')
+//        	$http.get(contextPath + 'patients/p/d/c/' + $scope.filterByProvince + '/' + inputDistrict + '/0')
 //        	.success(function(result){$scope.patients = result;});
         	
         	$scope.patientparams.provinceId = $scope.filterByProvince ? $scope.filterByProvince : 0;
@@ -113,7 +114,7 @@ angular.module('ppmApp')
         	$scope.patientparams.examResultId = $scope.filterByExamResult ? $scope.filterByExamResult : 0;
         	$scope.patientparams.exportExcel = 0;
         	$http({
-        	      url: '/api/patients/search',
+        	      url: contextPath + 'patients/search',
         	      method: "POST",
         	      data: $scope.patientparams,
         	      headers: {
@@ -159,7 +160,7 @@ angular.module('ppmApp')
         	if ($scope.patientTotal > 0) {
         		$scope.patientparams.exportExcel = 1;
         		$http({
-          	      url: '/api/patients/excel',
+          	      url: contextPath + 'patients/excel',
           	      method: "POST",
           	      data: $scope.patientparams,
           	      headers: {
@@ -167,7 +168,7 @@ angular.module('ppmApp')
           	      }
           	    })
           	    .success(function(data, status) {
-          	    	window.open("/assets/ppm_.xls",'_blank');
+          	    	window.open("/ppm/assets/ppm_.xls",'_blank');
                   })
                   .error(function (data, status) {
           	      console.log('getResult error.');

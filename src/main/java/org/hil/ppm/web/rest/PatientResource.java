@@ -194,7 +194,7 @@ public class PatientResource {
 			
 		List<ExamResult> results = examResultRepository.findAll();
 		long currentTime = System.currentTimeMillis();
-		String reportDir = "d:/HProjects/path.ppm/program/ppm/src/main/webapp/assets/";
+		String reportDir = "/opt/ppm/apache-tomcat-7.0.63/webapps/ppm/assets/";
 		String filePath = reportDir + "ppm_.xls";
 		String path = "";
 		POIFSFileSystem fs;

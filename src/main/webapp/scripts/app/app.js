@@ -108,7 +108,7 @@ angular.module('ppmApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprec
             urlTemplate: 'i18n/{lang}/{part}.json'
         });
 
-        $translateProvider.preferredLanguage('vi');
+        $translateProvider.preferredLanguage('en');
         $translateProvider.useCookieStorage();
         $translateProvider.useSanitizeValueStrategy('escaped');
 
